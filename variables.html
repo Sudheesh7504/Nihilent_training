@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Variables in java script</h1>
+    <script>
+        //variables declaration and assigning
+        var a; //var allows without assigning the value
+        let b;//let allows without assigning the value
+        const c; //const doesn't allows without assigning the value
+
+        //parent object document-window
+        var a1=10;
+        let b1=20;
+        const c1=30;
+
+        window.a1;//stores in window object
+        window.b1//doesnt store in window object
+        window.c1//doesnt store in windows object
+
+        //variables re-assigning
+        var a2=100;
+        var a2=200; //allows the user to reassign the values
+
+        let b2=200;
+        let b2=300; //doesnt allows to reassign the values
+
+        const c2=300;
+        const c2=400;//doesnt allows to reassign the values
+
+        //functional level usage
+
+        function f1(){
+            var v=100;
+            let l=200;
+            const c=300;
+        }f1();
+        console.log(v); //we cant use outside the function -functional scope
+        console.log(l); //we cant use oustside the function
+        console.log(c); //we cant use outside the function
+
+
+        //conditional level usage/block level usage
+        if(true){
+            var v1=100;
+            var l1=200;
+            var cc=300;
+        }
+        console.log(v1); //we can use outside the block/condition
+        console.log(l1); //we cant use outside the block/condition
+        console.log(cc); //we cant use outside the block/condition
+
+
+
+        
+
+    </script>
+</body>
+</html>

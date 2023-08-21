@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>optional chaining in java script</h1>
+
+    <script>
+        //?. --this operator helps to not throw an error when we works with nested objects with undefined values
+        const pets={
+            cat:{
+                name:'neo'
+            }
+        }
+
+        console.log(pets.cat.name); //value is presented in this statement
+        console.log(pets.dog?.name); //value not presented
+    </script>
+</body>
+</html>

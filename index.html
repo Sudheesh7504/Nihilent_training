@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        h1{
+            color:white;
+            background-color:blue;
+        }
+
+        img{
+            width:400px;
+            height:300px; 
+            /*zoom in */
+            object-fit:cover;
+        }
+    </style>
+</head>
+<body>
+    <h1 id="user">hi sudeesh 😍</h1>
+    <img
+    src="https://mcdn.wallpapersafari.com/medium/14/51/BiX7S5.jpg"
+   alt="a beautiful sea"/>
+
+   <script>
+    console.log(4+6);
+    var x=5;
+    console.log(typeof x);
+    console.log(typeof typeof x);
+
+    var y;
+    console.log(y);
+    console.log(typeof y);
+
+    {
+    let quote='live';
+    var nq="live";
+    }
+    //console.log(quote);
+    console.log(nq);
+
+    //IIFE-function
+    (function double(n){
+        console.log(n*2);
+    })(10);
+
+    //normal function
+    function double1(n){
+        console.log(n*2);
+    }double1(10);
+    
+    //anonymous function
+
+   (function (m){
+        console.log(n*5);
+    })(10);
+
+    var q1=[100,200];
+    var q3=[...q1];
+    console.log(q1);
+    console.log(q3);
+
+   </script>
+</body>
+</html>
