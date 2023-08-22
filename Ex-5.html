@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // Ex 5
+const library = [
+    { title: 'The Great Gatsby', authors: ['F. Scott Fitzgerald'], borrowed: true },
+    { title: 'To Kill a Mockingbird', authors: ['Harper Lee','sudeesh'], borrowed: true },
+    { title: '1984', authors: ['George Orwell'], borrowed: false },
+    { title: 'The Hobbit', authors: ['J.R.R. Tolkien'], borrowed: true },
+    { title: 'Brave New World', authors: ['Aldous Huxley'], borrowed: true }
+];
+
+
+// Task 1: Determine if all books in the library have been borrowed.
+
+//const marks=[80,68,90,40,30,50];
+
+    //const result=marks.every((mark)=> mark>=40);
+    //console.log(result ? "All pass" : "Failed");
+
+    const res1=library.every((book)=>book.borrowed);
+    console.log(res1 ? "yes" : "no");
+
+// Task 2: Determine if there are books in the library written by multiple authors
+
+const res2=library.some((book)=>book.authors.length>1);
+console.log(res2 ? "yes" : "no");
+
+
+    </script>
+</body>
+</html>

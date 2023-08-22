@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        const person = {
+  name: {
+    first: "Alice",
+    last: "Johnson"
+  },
+  age: 28,
+  favoriteColors: ["blue", "green"]
+};
+
+const getPersonInfo=({name:{first,last},age,favoriteColors:[c1,c2]})=>`${first} ${last} is ${age} years old. Her favorite colors are ${c1} and ${c2}.`; 
+  
+
+ 
+
+console.log(getPersonInfo(person));
+
+    </script>
+    
+</body>
+</html>

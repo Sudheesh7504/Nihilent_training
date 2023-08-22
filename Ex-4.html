@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+
+const cart = [
+  { name: "Apple", price: 0.5, quantity: 4 },
+  { name: "Banana", price: 0.25, quantity: 6 },
+];
+
+const newItems = [
+  { name: "Cherry", price: 0.75, quantity: 5 },
+  { name: "Date", price: 1, quantity: 3 },
+];
+
+
+// Ex4:
+function calculateTotal(cartItems) {
+  let total = 0;
+  for (let {price,quantity} of cartItems) {
+    total += price * quantity;
+  }
+  return total;
+}
+
+let total = calculateTotal([...cart,...newItems]);
+console.log(total); 
+
+
+
+
+
+
+
+
+    </script>
+    
+</body>
+</html>
