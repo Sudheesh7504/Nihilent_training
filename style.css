@@ -1,0 +1,18 @@
+p{
+    line-height: 1.5;
+    background: gray;
+    color: black;
+    border: 8px solid black;
+    border-top-style:dotted;
+    padding: 15px;
+}
+
+img{
+    height: 200px;
+    width: 200px;
+    position: fixed;
+    border-radius: 50%;
+    aspect-ratio: 1/1;
+    object-fit: cover;
+    border: 8px solid black;
+}

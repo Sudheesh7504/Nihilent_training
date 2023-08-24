@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // Ex 8:
+const players = [
+  { name: "Alice", skills: ["defense", "speed"] },
+  { name: "Bob", skills: ["speed", "attack", "strategy"] },
+  { name: "Charlie", skills: ["speed", "attack"] },
+  { name: "David", skills: ["strategy", "defense", "speed"] },
+  { name: "Eva", skills: ["speed", "strategy"] }
+];
+
+const requiredSkills = ["speed", "strategy"];
+
+
+console.log(players.filter((player)=>requiredSkills.every((skill)=>player.skills.includes(skill))).map(player=>player.name).join(','));
+    </script>
+</body>
+</html>

@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+
+        
+// Ex 11: Total revenue
+const products = [
+    { name: 'Laptop', price: 1000, unitsSold: 5 },
+    { name: 'Phone', price: 700, unitsSold: 8 },
+    { name: 'Tablet', price: 500, unitsSold: 3 },
+    { name: 'Headphones', price: 80, unitsSold: 15 },
+    { name: 'Charger', price: 20, unitsSold: 25 }
+];
+
+console.log(products.reduce((total,curr)=>total+curr));
+
+    </script>
+    
+</body>
+</html>

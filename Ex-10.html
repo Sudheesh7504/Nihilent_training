@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+// Top 3 Students
+const students = [
+    { name: 'Alice', score: 85 },
+    { name: 'Bob', score: 92 },
+    { name: 'Charlie', score: 88 },
+    { name: 'David', score: 79 },
+    { name: 'Eva', score: 95 }
+];
+
+// This should output: "Eva, Bob, Charlie"
+
+console.log(
+        students.sort((stu1,stu2)=>stu2.score-stu1.score)
+                .map((stuname)=>stuname.name)
+                .slice(0,3).join(",")
+);
+    </script>
+</body>
+</html>

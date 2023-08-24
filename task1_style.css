@@ -1,0 +1,20 @@
+
+div {
+    width: 500px;
+    background-color:lightblue;
+    border-radius: 20px;
+    padding: 20px;
+    border-left: 8px solid blue;
+    text-align: justify;
+}
+
+body {
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    
+    background-color: #f0f0f0;
+}
+

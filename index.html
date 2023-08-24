@@ -62,6 +62,33 @@
     console.log(q1);
     console.log(q3);
 
+    const marks=[80,68,90,40,30,50];
+
+    const result=marks.every((mark)=> mark>=40);
+    console.log(result ? "All pass" : "Failed");
+
+    // Ex 5
+const library = [
+    { title: 'The Great Gatsby', authors: ['F. Scott Fitzgerald','sudeesh'], borrowed: true },
+    { title: 'To Kill a Mockingbird', authors: ['Harper Lee'], borrowed: false },
+    { title: '1984', authors: ['George Orwell'], borrowed: true },
+    { title: 'The Hobbit', authors: ['J.R.R. Tolkien'], borrowed: false },
+    { title: 'Brave New World', authors: ['Aldous Huxley'], borrowed: true }
+];
+
+
+
+   const result1=library.every((book)=>(book.borrowed));
+    console.log(result1 ? "yes" : "No");
+
+const result2=library.some((book)=>(book.authors.length>1));
+    console.log(result2 ? "yes" : "No");
+
+
+
+// Task 1: Determine if all books in the library have been borrowed.
+// Task 2: Determine if there are books in the library written by multiple authors
+
    </script>
 </body>
 </html>
