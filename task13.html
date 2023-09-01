@@ -2,9 +2,49 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
-    <link rel="stylesheet" href="task13.css" />
+
+    <style>
+      body {
+        margin: 0;
+        min-height: 100vh;
+        display: grid;
+        place-content: center;
+        gap: 2rem;
+        grid-template-columns: repeat(auto-fit, minmax(14rem, 1fr));
+
+        padding: 2rem;
+        font-family: Roboto, "san-serif";
+        background: whitesmoke;
+      }
+
+      .flag-container {
+        background: white;
+        border-radius: 1rem;
+        overflow: hidden;
+        box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+      }
+
+      .flag-details-container {
+        padding: 1.5rem;
+      }
+
+      .flag-details-container span {
+        font-weight: bold;
+      }
+
+      .flag-details-container p {
+        font-size: 1.2rem;
+      }
+
+      .flag-container img {
+        height: 12rem;
+        width: 100%;
+        object-fit: cover;
+      }
+    </style>
   </head>
   <body>
     <script>
@@ -46,37 +86,38 @@
         },
       ];
 
-      const container = document.createElement("div"); //div created
-      container.classList.add("main-container"); //class created
-      document.body.appendChild(container); //added to body
+      //   countriesInfo.forEach((country) => {
+      //     document.body.innerHTML += `<section class="flag-container">
+      //   <img
+      //     src=${country.flag}
+      //     alt=${country.name}
+      //   />
 
-      countriesInfo.forEach((country) => {
-        const Item = document.createElement("div");
-        Item.classList.add("country-item");
+      //   <div class="flag-details-container">
+      //     <h2 class="country-name">${country.name}</h2>
 
-        const imageElement = document.createElement("img");
-        imageElement.src = country.flag;
-        imageElement.classList.add("country-image");
+      //     <p><span>Population:</span> ${country.population}</p>
+      //     <p><span>Region:</span> ${country.region}</p>
+      //     <p><span>Capital:</span> ${country.capital}</p>
+      //   </div>
+      // </section> `;
+      //   });
 
-        const countryname = document.createElement("h1");
-        countryname.innerText = country.name;
+      countriesInfo.forEach(({ flag, name, population, region, capital }) => {
+        document.body.innerHTML += `<section class="flag-container">
+      <img
+        src=${flag}
+        alt=${name}
+      />
 
-        const countrypopulation = document.createElement("h4");
-        countrypopulation.innerHTML = `<p><strong>Population:</strong>${country.population}</p>`;
+      <div class="flag-details-container">
+        <h2 class="country-name">${name}</h2>
 
-        const countryRegion = document.createElement("h4");
-        countryRegion.innerHTML = `<p><strong>Region:</strong>${country.region}</p>`;
-
-        const countryCapital = document.createElement("h4");
-        countryCapital.innerHTML = `<p><strong>Capital:</strong>${country.capital}</p>`;
-
-        Item.appendChild(imageElement);
-        Item.appendChild(countryname);
-        Item.appendChild(countrypopulation);
-        Item.appendChild(countryRegion);
-        Item.appendChild(countryCapital);
-
-        container.appendChild(Item);
+        <p><span>Population:</span> ${population}</p>
+        <p><span>Region:</span> ${region}</p>
+        <p><span>Capital:</span> ${capital}</p>
+      </div>
+    </section> `;
       });
     </script>
   </body>
