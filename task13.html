@@ -2,123 +2,100 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
-
     <style>
       body {
-        margin: 0;
+        background-size: cover;
+        background-position: center;
         min-height: 100vh;
-        display: grid;
-        place-content: center;
-        gap: 2rem;
-        grid-template-columns: repeat(auto-fit, minmax(14rem, 1fr));
-
-        padding: 2rem;
-        font-family: Roboto, "san-serif";
-        background: whitesmoke;
+        margin: 0;
+        transition: background-image;
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover;
+        cursor: pointer;
       }
 
-      .flag-container {
-        background: white;
-        border-radius: 1rem;
-        overflow: hidden;
-        box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+      .main-container {
+        height: 40vh;
       }
 
-      .flag-details-container {
-        padding: 1.5rem;
+      .buttons {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        position: absolute;
+        top: 50%;
+        left: 0;
+        right: 0;
+        transform: translateY(-50%);
       }
 
-      .flag-details-container span {
-        font-weight: bold;
+      .btn {
+        padding: 20px;
+        background-color: rgba(0, 0, 0, 0.5);
+        color: white;
+        border: none;
+        cursor: pointer;
+        transition: background-color;
+        min-height: 100%;
       }
 
-      .flag-details-container p {
-        font-size: 1.2rem;
-      }
-
-      .flag-container img {
-        height: 12rem;
-        width: 100%;
-        object-fit: cover;
+      .btn:hover {
+        background-color: rgba(0, 0, 0, 0.7);
       }
     </style>
   </head>
   <body>
+    <div class="main-container">
+      <div class="buttons">
+        <button class="btn" onclick="left()">&lt;</button>
+        <button class="btn" onclick="right()">&gt;</button>
+      </div>
+    </div>
+
     <script>
-      let countriesInfo = [
-        {
-          name: "India",
-          population: " 1,394,975,829",
-          region: "Asia",
-          flag: "https://upload.wikimedia.org/wikipedia/commons/7/7b/India_flag_300.png",
-          capital: "New delhi",
-        },
-        {
-          name: "Germany",
-          population: "81,770,900",
-          region: "Europe",
-          flag: "https://upload.wikimedia.org/wikipedia/en/thumb/b/ba/Flag_of_Germany.svg/1200px-Flag_of_Germany.svg.png",
-          capital: "Berlin",
-        },
-        {
-          name: "United states",
-          population: "323,947,000",
-          region: "Americas",
-          flag: "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a4/Flag_of_the_United_States.svg/640px-Flag_of_the_United_States.svg.png",
-          capital: "Washington D.C",
-        },
-        {
-          name: "Brazil",
-          population: "206,135,893",
-          region: "Americas",
-          flag: "https://upload.wikimedia.org/wikipedia/commons/0/01/Brazil_flag_300.png",
-          capital: "Brasilia",
-        },
-        {
-          name: "Iceland",
-          population: "334,300",
-          region: "Europe",
-          flag: "https://upload.wikimedia.org/wikipedia/commons/thumb/c/ce/Flag_of_Iceland.svg/640px-Flag_of_Iceland.svg.png",
-          capital: "Reykjavik",
-        },
+      const image_array = [
+        "image-graphic-design.jpg",
+        "image-header-desktop.jpg",
+        "image-stand-out.jpg",
       ];
 
-      //   countriesInfo.forEach((country) => {
-      //     document.body.innerHTML += `<section class="flag-container">
-      //   <img
-      //     src=${country.flag}
-      //     alt=${country.name}
-      //   />
+      let index = 0;
+      let intervalId;
 
-      //   <div class="flag-details-container">
-      //     <h2 class="country-name">${country.name}</h2>
+      function showImage() {
+        const imageUrl = image_array[index];
+        document.body.style.backgroundImage = `url(${imageUrl})`;
+      }
 
-      //     <p><span>Population:</span> ${country.population}</p>
-      //     <p><span>Region:</span> ${country.region}</p>
-      //     <p><span>Capital:</span> ${country.capital}</p>
-      //   </div>
-      // </section> `;
-      //   });
+      function left() {
+        index = (index - 1 + image_array.length) % image_array.length;
+        showImage();
+      }
 
-      countriesInfo.forEach(({ flag, name, population, region, capital }) => {
-        document.body.innerHTML += `<section class="flag-container">
-      <img
-        src=${flag}
-        alt=${name}
-      />
+      function right() {
+        index = (index + 1) % image_array.length;
+        showImage();
+      }
 
-      <div class="flag-details-container">
-        <h2 class="country-name">${name}</h2>
+      function startSlideshow() {
+        intervalId = setInterval(right, 2000);
+      }
 
-        <p><span>Population:</span> ${population}</p>
-        <p><span>Region:</span> ${region}</p>
-        <p><span>Capital:</span> ${capital}</p>
-      </div>
-    </section> `;
-      });
+      function stopSlideshow() {
+        clearInterval(intervalId);
+      }
+
+      // document
+      //   .querySelector(".main-container")
+      //   .addEventListener("mouseover", stopSlideshow);
+      document.body.addEventListener("mouseover", stopSlideshow);
+      document.body.addEventListener("mouseout", startSlideshow);
+
+      showImage();
+      startSlideshow();
     </script>
   </body>
 </html>

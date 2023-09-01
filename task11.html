@@ -1,17 +1,124 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
-    <link rel="stylesheet" href="task11.css">
-</head>
-<body>
-    <div class="container">
-        <h1>I had seriously high expectations for Josh's CSS course.And honestly?It's exceeded them.</h1>
 
-    </div>
-    
-    <h1></h1>
-</body>
+    <style>
+      body {
+        margin: 0;
+        min-height: 100vh;
+        display: grid;
+        place-content: center;
+        gap: 2rem;
+        grid-template-columns: repeat(auto-fit, minmax(14rem, 1fr));
+
+        padding: 2rem;
+        font-family: Roboto, "san-serif";
+        background: whitesmoke;
+      }
+
+      .flag-container {
+        background: white;
+        border-radius: 1rem;
+        overflow: hidden;
+        box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+      }
+
+      .flag-details-container {
+        padding: 1.5rem;
+      }
+
+      .flag-details-container span {
+        font-weight: bold;
+      }
+
+      .flag-details-container p {
+        font-size: 1.2rem;
+      }
+
+      .flag-container img {
+        height: 12rem;
+        width: 100%;
+        object-fit: cover;
+      }
+    </style>
+  </head>
+  <body>
+    <script>
+      let countriesInfo = [
+        {
+          name: "India",
+          population: " 1,394,975,829",
+          region: "Asia",
+          flag: "https://upload.wikimedia.org/wikipedia/commons/7/7b/India_flag_300.png",
+          capital: "New delhi",
+        },
+        {
+          name: "Germany",
+          population: "81,770,900",
+          region: "Europe",
+          flag: "https://upload.wikimedia.org/wikipedia/en/thumb/b/ba/Flag_of_Germany.svg/1200px-Flag_of_Germany.svg.png",
+          capital: "Berlin",
+        },
+        {
+          name: "United states",
+          population: "323,947,000",
+          region: "Americas",
+          flag: "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a4/Flag_of_the_United_States.svg/640px-Flag_of_the_United_States.svg.png",
+          capital: "Washington D.C",
+        },
+        {
+          name: "Brazil",
+          population: "206,135,893",
+          region: "Americas",
+          flag: "https://upload.wikimedia.org/wikipedia/commons/0/01/Brazil_flag_300.png",
+          capital: "Brasilia",
+        },
+        {
+          name: "Iceland",
+          population: "334,300",
+          region: "Europe",
+          flag: "https://upload.wikimedia.org/wikipedia/commons/thumb/c/ce/Flag_of_Iceland.svg/640px-Flag_of_Iceland.svg.png",
+          capital: "Reykjavik",
+        },
+      ];
+
+      //   countriesInfo.forEach((country) => {
+      //     document.body.innerHTML += `<section class="flag-container">
+      //   <img
+      //     src=${country.flag}
+      //     alt=${country.name}
+      //   />
+
+      //   <div class="flag-details-container">
+      //     <h2 class="country-name">${country.name}</h2>
+
+      //     <p><span>Population:</span> ${country.population}</p>
+      //     <p><span>Region:</span> ${country.region}</p>
+      //     <p><span>Capital:</span> ${country.capital}</p>
+      //   </div>
+      // </section> `;
+      //   });
+
+      countriesInfo.forEach(({ flag, name, population, region, capital }) => {
+        document.body.innerHTML += `<section class="flag-container">
+      <img
+        src=${flag}
+        alt=${name}
+      />
+
+      <div class="flag-details-container">
+        <h2 class="country-name">${name}</h2>
+
+        <p><span>Population:</span> ${population}</p>
+        <p><span>Region:</span> ${region}</p>
+        <p><span>Capital:</span> ${capital}</p>
+      </div>
+    </section> `;
+      });
+    </script>
+  </body>
 </html>

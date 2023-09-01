@@ -1,28 +1,51 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
-</head>
-<body>
-    <ul class="hobbies">
-       
-    </ul>
+
+    <style>
+      body {
+        background: purple;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- <button onclick="message()">clickme</button>
+
     <script>
-        const hobbiesData = ["Reading","Painting","Photography","Hiking","Gardening","Cooking","Playing musical instruments","Dancing","Traveling",
-     "Knitting"];
+        function message(){
+            console.log("Hi Hello");
+        } -->
+    <button onclick="start()">start</button>
+    <button onclick="stop()">stop</button>
+    <button onclick="pause()">pause</button>
+    <script>
+      const colors = ["orange", "crimson", "plum", "teal"];
 
-    //  const data=document.getElementsByClassName("hobbies").innerHTML="<li>hobiesData[0]</li>";
-    // //  .innerHTML="<li>[hobiesData]</li>"
-    //  console.log(data);
+      let index = 0;
+      let colorIntv;
+      function start() {
+        console.log("started", index);
+        colorIntv = setInterval(() => {
+          if (index >= colors.length) {
+            index = 0;
+          }
 
-    const data=document.querySelector(".hobbies");
+          console.log("current index", index);
+          document.body.style.background = colors[index];
+          index++;
+        }, 2000);
+      }
 
+      function stop() {
+        clearInterval(colorIntv);
+      }
 
-    data.innerHTML=hobbiesData.map((hb) =>`<li>${hb}</li>`).join("");
-
+      function pause() {
+        clearInterval(colorIntv);
+      }
     </script>
-    
-</body>
+  </body>
 </html>
