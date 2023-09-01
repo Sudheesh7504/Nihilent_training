@@ -18,7 +18,7 @@ const products = [
     { name: 'Charger', price: 20, unitsSold: 25 }
 ];
 
-console.log(products.reduce((total,curr)=>total+curr));
+console.log(products.reduce((total,curr)=>total+curr.price*curr.unitsSold,0));
 
     </script>
     

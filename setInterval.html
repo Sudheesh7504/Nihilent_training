@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      //Runner -3 times then stop
+
+      const sudeeshIntv = window.setInterval(() => {
+        console.log("Hi sudeesh");
+      }, 2000);
+
+      //stopper
+
+      //window.clearInterval(sudeeshIntv);
+
+      window.setTimeout(() => {
+        window.clearInterval(sudeeshIntv);
+      }, 6000);
+    </script>
+  </body>
+</html>

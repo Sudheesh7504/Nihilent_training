@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="task13.css" />
+  </head>
+  <body>
+    <script>
+      let countriesInfo = [
+        {
+          name: "India",
+          population: " 1,394,975,829",
+          region: "Asia",
+          flag: "https://upload.wikimedia.org/wikipedia/commons/7/7b/India_flag_300.png",
+          capital: "New delhi",
+        },
+        {
+          name: "Germany",
+          population: "81,770,900",
+          region: "Europe",
+          flag: "https://upload.wikimedia.org/wikipedia/en/thumb/b/ba/Flag_of_Germany.svg/1200px-Flag_of_Germany.svg.png",
+          capital: "Berlin",
+        },
+        {
+          name: "United states",
+          population: "323,947,000",
+          region: "Americas",
+          flag: "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a4/Flag_of_the_United_States.svg/640px-Flag_of_the_United_States.svg.png",
+          capital: "Washington D.C",
+        },
+        {
+          name: "Brazil",
+          population: "206,135,893",
+          region: "Americas",
+          flag: "https://upload.wikimedia.org/wikipedia/commons/0/01/Brazil_flag_300.png",
+          capital: "Brasilia",
+        },
+        {
+          name: "Iceland",
+          population: "334,300",
+          region: "Europe",
+          flag: "https://upload.wikimedia.org/wikipedia/commons/thumb/c/ce/Flag_of_Iceland.svg/640px-Flag_of_Iceland.svg.png",
+          capital: "Reykjavik",
+        },
+      ];
+
+      const container = document.createElement("div"); //div created
+      container.classList.add("main-container"); //class created
+      document.body.appendChild(container); //added to body
+
+      countriesInfo.forEach((country) => {
+        const Item = document.createElement("div");
+        Item.classList.add("country-item");
+
+        const imageElement = document.createElement("img");
+        imageElement.src = country.flag;
+        imageElement.classList.add("country-image");
+
+        const countryname = document.createElement("h1");
+        countryname.innerText = country.name;
+
+        const countrypopulation = document.createElement("h4");
+        countrypopulation.innerHTML = `<p><strong>Population:</strong>${country.population}</p>`;
+
+        const countryRegion = document.createElement("h4");
+        countryRegion.innerHTML = `<p><strong>Region:</strong>${country.region}</p>`;
+
+        const countryCapital = document.createElement("h4");
+        countryCapital.innerHTML = `<p><strong>Capital:</strong>${country.capital}</p>`;
+
+        Item.appendChild(imageElement);
+        Item.appendChild(countryname);
+        Item.appendChild(countrypopulation);
+        Item.appendChild(countryRegion);
+        Item.appendChild(countryCapital);
+
+        container.appendChild(Item);
+      });
+    </script>
+  </body>
+</html>

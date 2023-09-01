@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+
+    <style>
+      body {
+        background: purple;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- <button onclick="message()">clickme</button>
+
+    <script>
+        function message(){
+            console.log("Hi Hello");
+        } -->
+    <button onclick="start()">start</button>
+    <button onclick="stop()">stop</button>
+    <button onclick="pause()">pause</button>
+    <script>
+      const colors = ["orange", "crimson", "plum", "teal"];
+
+      let index = 0;
+      let colorIntv;
+      function start() {
+        console.log("started", index);
+        colorIntv = setInterval(() => {
+          if (index >= colors.length) {
+            index = 0;
+          }
+
+          console.log("current index", index);
+          document.body.style.background = colors[index];
+          index++;
+        }, 2000);
+      }
+
+      function stop() {
+        clearInterval(colorIntv);
+      }
+
+      function pause() {
+        clearInterval(colorIntv);
+      }
+    </script>
+  </body>
+</html>
