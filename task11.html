@@ -2,37 +2,31 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
-
     <style>
       body {
         margin: 0;
         min-height: 100vh;
-        display: grid;
         place-content: center;
-        gap: 2rem;
-        grid-template-columns: repeat(auto-fit, minmax(14rem, 1fr));
-
-        padding: 2rem;
+        /* text-align: center; */
+        display: grid;
+        justify-content: center;
         font-family: Roboto, "san-serif";
         background: whitesmoke;
+        grid-template-columns: repeat(auto-fit, minmax(14rem, 1fr));
+        gap: 1rem;
       }
 
       .flag-container {
-        background: white;
-        border-radius: 1rem;
+        background-color: white;
+        border-radius: 15px;
         overflow: hidden;
         box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
       }
 
       .flag-details-container {
-        padding: 1.5rem;
-      }
-
-      .flag-details-container span {
-        font-weight: bold;
+        padding: 1.2rem;
       }
 
       .flag-details-container p {
@@ -44,9 +38,26 @@
         width: 100%;
         object-fit: cover;
       }
+
+      .flag-details-container span {
+        font-weight: bold;
+      }
     </style>
   </head>
   <body>
+    <!-- <section class="flag-container">
+      <img
+        src="https://upload.wikimedia.org/wikipedia/commons/7/7b/India_flag_300.png"
+      />
+
+      <div class="flag-details-container">
+        <h1 class="country-name">India</h1>
+        <p><span>population:</span> 1,394,975,829</p>
+        <p><span>region:</span> Asia</p>
+        <p><span>capital:</span> New delhi</p>
+      </div>
+    </section> -->
+
     <script>
       let countriesInfo = [
         {
@@ -86,38 +97,19 @@
         },
       ];
 
-      //   countriesInfo.forEach((country) => {
-      //     document.body.innerHTML += `<section class="flag-container">
-      //   <img
-      //     src=${country.flag}
-      //     alt=${country.name}
-      //   />
-
-      //   <div class="flag-details-container">
-      //     <h2 class="country-name">${country.name}</h2>
-
-      //     <p><span>Population:</span> ${country.population}</p>
-      //     <p><span>Region:</span> ${country.region}</p>
-      //     <p><span>Capital:</span> ${country.capital}</p>
-      //   </div>
-      // </section> `;
-      //   });
-
-      countriesInfo.forEach(({ flag, name, population, region, capital }) => {
+      countriesInfo.forEach((country) => {
         document.body.innerHTML += `<section class="flag-container">
       <img
-        src=${flag}
-        alt=${name}
+        src=${country.flag}
       />
 
       <div class="flag-details-container">
-        <h2 class="country-name">${name}</h2>
-
-        <p><span>Population:</span> ${population}</p>
-        <p><span>Region:</span> ${region}</p>
-        <p><span>Capital:</span> ${capital}</p>
+        <h1 class="country-name">${country.name}</h1>
+        <p><span>population:</span>${country.population}</p>
+        <p><span>region:</span> ${country.region}</p>
+        <p><span>capital:</span> ${country.capital}</p>
       </div>
-    </section> `;
+    </section>`;
       });
     </script>
   </body>
