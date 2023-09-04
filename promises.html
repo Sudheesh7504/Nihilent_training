@@ -8,15 +8,18 @@
   <body>
     <script>
       let p = new Promise((reslolve, reject) => {
-        let age = 20;
+        let age = 10;
         if (age > 18) {
           reslolve("eligible for vote");
         } else {
           reject("not eligible");
         }
       });
-      p.then((a) => console.log("eligible"));
-      p.catch((a) => console.log("not eligible"));
+      console.log(p);
+      const x = p
+        .then((a) => "awesome" + a)
+        .catch((error) => console.log("Error ❌" + error));
+      // x.then((msg) => console.error("super" + msg));
     </script>
   </body>
 </html>
