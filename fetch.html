@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <ol></ol>
+    <script>
+      //task1-print all the country names
+      //   fetch("https://restcountries.com/v3.1/all")
+      //     .then((response) => response.json())
+      //     .then((data) => {
+      //       console.log(data.map((cname) => cname.name.common));
+      //     });
+
+      //task2-population more than 10000000
+
+      //   fetch("https://restcountries.com/v3.1/all")
+      //     .then((response) => response.json())
+      //     .then((data) => {
+      //       console.log(
+      //         data
+      //           .filter((cname) => cname.population > 10000000)
+      //           .sort((a, b) => b.population - a.population)
+      //           .map((n) => n.name.common)
+      //       );
+      //     });
+
+      //task3 -population more than 10000000 with serial numbers and respective population
+
+      //   fetch("https://restcountries.com/v3.1/all")
+      //     .then((response) => response.json())
+      //     .then((data) => {
+      //       console.log(
+      //         data
+      //           .filter((cname) => cname.population > 10000000)
+      //           .sort((a, b) => b.population - a.population)
+      //           .map((n, c) => `${c + 1}. ${n.name.common} - ${n.population}`)
+      //           .join("\n")
+      //       );
+      //     });
+
+      //task4-get top 10 populated countries
+
+      //   fetch("https://restcountries.com/v3.1/all")
+      //     .then((response) => response.json())
+      //     .then((data) => {
+      //       console.log(
+      //         data
+      //           .filter((cname) => cname.population > 10000000)
+      //           .sort((a, b) => b.population - a.population)
+      //           .map((country, c) => `${c + 1}. ${country.name.common} - ${country.population}`)
+
+      //           .slice(0, 10)
+      //       );
+      //     });
+
+      //task5-display the top 10 countries on the screen in list form
+
+      fetch("https://restcountries.com/v3.1/all")
+        .then((response) => response.json())
+        .then((data) => {
+          const x = data
+            .filter((cname) => cname.population > 10000000)
+            .sort((a, b) => b.population - a.population)
+            .map((n) => `${n.name.common} - ${n.population}`)
+
+            .slice(0, 10);
+
+          const countrylist = document.querySelector("ol");
+          countrylist.innerHTML = x.map((top) => `<li>${top}</li>`).join(" ");
+        });
+
+      //     const data=document.querySelector(".hobbies");
+
+      // data.innerHTML=hobbiesData.map((hb) =>`<li>${hb}</li>`).join("");
+    </script>
+  </body>
+</html>
