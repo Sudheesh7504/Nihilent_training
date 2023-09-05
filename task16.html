@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      body {
+        margin: 0;
+        min-height: 100vh;
+        place-content: center;
+        /* text-align: center; */
+        display: grid;
+        justify-content: center;
+        font-family: Roboto, "san-serif";
+        background: whitesmoke;
+        grid-template-columns: repeat(auto-fit, minmax(14rem, 1fr));
+        gap: 1rem;
+      }
+
+      .flag-container {
+        background-color: white;
+        border-radius: 15px;
+        overflow: hidden;
+        box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+      }
+
+      .flag-details-container {
+        padding: 1.2rem;
+      }
+
+      .flag-details-container p {
+        font-size: 1.2rem;
+      }
+
+      .flag-container img {
+        height: 12rem;
+        width: 100%;
+        object-fit: cover;
+      }
+
+      .flag-details-container span {
+        font-weight: bold;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- <section class="flag-container">
+      <img
+        src="https://upload.wikimedia.org/wikipedia/commons/7/7b/India_flag_300.png"
+      />
+
+      <div class="flag-details-container">
+        <h1 class="country-name">India</h1>
+        <p><span>population:</span> 1,394,975,829</p>
+        <p><span>region:</span> Asia</p>
+        <p><span>capital:</span> New delhi</p>
+      </div>
+    </section> -->
+
+    <script>
+      //   let countriesInfo = [
+      //     {
+      //       name: "India",
+      //       population: " 1,394,975,829",
+      //       region: "Asia",
+      //       flag: "https://upload.wikimedia.org/wikipedia/commons/7/7b/India_flag_300.png",
+      //       capital: "New delhi",
+      //     },
+      //     {
+      //       name: "Germany",
+      //       population: "81,770,900",
+      //       region: "Europe",
+      //       flag: "https://upload.wikimedia.org/wikipedia/en/thumb/b/ba/Flag_of_Germany.svg/1200px-Flag_of_Germany.svg.png",
+      //       capital: "Berlin",
+      //     },
+      //     {
+      //       name: "United states",
+      //       population: "323,947,000",
+      //       region: "Americas",
+      //       flag: "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a4/Flag_of_the_United_States.svg/640px-Flag_of_the_United_States.svg.png",
+      //       capital: "Washington D.C",
+      //     },
+      //     {
+      //       name: "Brazil",
+      //       population: "206,135,893",
+      //       region: "Americas",
+      //       flag: "https://upload.wikimedia.org/wikipedia/commons/0/01/Brazil_flag_300.png",
+      //       capital: "Brasilia",
+      //     },
+      //     {
+      //       name: "Iceland",
+      //       population: "334,300",
+      //       region: "Europe",
+      //       flag: "https://upload.wikimedia.org/wikipedia/commons/thumb/c/ce/Flag_of_Iceland.svg/640px-Flag_of_Iceland.svg.png",
+      //       capital: "Reykjavik",
+      //     },
+      //   ];
+
+      fetch("https://restcountries.com/v3.1/all")
+        .then((response) => response.json())
+        .then((data) => {
+          data.forEach((country) => {
+            document.body.innerHTML += `<section class="flag-container">
+      <img
+        src=${country.flags.png}
+      />
+
+      <div class="flag-details-container">
+        <h1 class="country-name">${country.name.common}</h1>
+        <p><span>population:</span>${country.population}</p>
+        <p><span>region:</span> ${country.region}</p>
+        <p><span>capital:</span> ${country.capital}</p>
+      </div>
+    </section>`;
+          });
+        });
+    </script>
+  </body>
+</html>
