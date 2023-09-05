@@ -24,7 +24,7 @@
       //         data
       //           .filter((cname) => cname.population > 10000000)
       //           .sort((a, b) => b.population - a.population)
-      //           .map((n) => n.name.common)
+      //           .map((country) => country.name.common)
       //       );
       //     });
 
@@ -37,7 +37,7 @@
       //         data
       //           .filter((cname) => cname.population > 10000000)
       //           .sort((a, b) => b.population - a.population)
-      //           .map((n, c) => `${c + 1}. ${n.name.common} - ${n.population}`)
+      //           .map((country, i) => `${i + 1}. ${country.name.common} - ${country.population}`)
       //           .join("\n")
       //       );
       //     });
