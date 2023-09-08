@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      class AccountDetails {
+        static totalFunds = 0;
+
+        constructor(name, accNo, balance) {
+          this.name = name;
+          this.accNo = accNo;
+          this.balance = balance;
+          this.transactions = [];
+          AccountDetails.totalFunds += balance;
+        }
+
+        deposit(depamount) {
+          if (depamount > 0) {
+            this.balance += depamount;
+            const transaction = {
+              transaction_id: this.transactions.length + 1,
+              amount: depamount,
+              transaction_type: "credit",
+              date: Date.now(),
+            };
+            this.transactions.push(transaction);
+            AccountDetails.totalFunds += depamount;
+            return `${this.name} your balance after deposit is: ${this.balance}`;
+          }
+        }
+
+        withdraw(wamount) {
+          if (wamount > 0 && wamount <= this.balance) {
+            this.balance -= wamount;
+            const transaction = {
+              transaction_id: this.transactions.length + 1,
+              amount: wamount,
+              transaction_type: "debit",
+              date: Date.now(),
+            };
+            this.transactions.push(transaction);
+            AccountDetails.totalFunds -= wamount;
+            return `${this.name} your balance after withdrawal is: ${this.balance}`;
+          } else {
+            return "Insufficient amount";
+          }
+        }
+
+        getBalance() {
+          return `${this.name} your balance is: ${this.balance}`;
+        }
+
+        getTransactions() {
+          return this.transactions;
+        }
+
+        static getTotalFunds() {
+          return `Total funds across all accounts: ${AccountDetails.totalFunds}`;
+        }
+      }
+
+      const charan = new AccountDetails("charan", 3902435265599, 200000);
+      const sudeesh = new AccountDetails("sudeesh", 3902435265600, 200000);
+      const vamsi = new AccountDetails("vamsi", 3902435265601, 200000);
+
+      console.log(sudeesh);
+      console.log(sudeesh.deposit(35000));
+      console.log(sudeesh.withdraw(100000));
+      console.log(sudeesh.getBalance());
+      console.log(sudeesh.getTransactions());
+      console.log(AccountDetails.getTotalFunds());
+    </script>
+  </body>
+</html>
